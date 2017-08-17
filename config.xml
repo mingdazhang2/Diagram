@@ -1,0 +1,47 @@
+<match title='' numberofmemoryquestions='11' numberofflipquestions='11' backgroundimage="digestiveSystem-diag.jpg" backgroundname='' inputtype='drag' imgX='500' imgY='400'>
+    <passing-score>80</passing-score>
+    <pair targetx='210' targety='85'>
+        <question labelx='8' labely='130'>mouth</question>
+        <answer>mouth</answer>
+    </pair>
+    <pair targetx='259' targety='128'>
+        <question labelx='8' labely='190'>oesophagus</question>
+        <answer>oesophagus</answer>
+    </pair>
+    <pair targetx='290' targety='244'>
+        <question labelx='8' labely='250'>stomach</question>
+        <answer>stomach</answer>
+    </pair>
+    <pair targetx='301' targety='263'>
+        <question labelx='8' labely='310'>pancreas</question>
+        <answer>pancreas</answer>
+    </pair>
+    <pair targetx='241' targety='309'>
+        <question labelx='400' labely='80'>small intestine</question>
+        <answer>small intestine</answer>
+    </pair>
+    <pair targetx='238' targety='290'>
+        <question labelx='400' labely='140'>large intestine</question>
+        <answer>large intestine</answer>
+    </pair>
+    <pair targetx='218' targety='362'>
+        <question labelx='400' labely='200'>appendix</question>
+        <answer>appendix</answer>
+    </pair>
+    <pair targetx='245' targety='395'>
+        <question labelx='400' labely='260'>anus</question>
+        <answer>anus</answer>
+    </pair>
+    <pair targetx='216' targety='222'>
+        <question labelx='400' labely='320'>liver</question>
+        <answer>liver</answer>
+    </pair>
+    <pair targetx='224' targety='244'>
+        <question labelx='400' labely='380'>gall bladder</question>
+        <answer>gall bladder</answer>
+    </pair>
+    <pair targetx='295' targety='325'>
+        <question labelx='8' labely='360'>colon</question>
+        <answer>colon</answer>
+    </pair>
+</match>

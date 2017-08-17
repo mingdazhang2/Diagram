@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <title>Quantities and units Group</title>
+    <link rel="stylesheet" href="css/diagram.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="lib/jquery-3.2.0.min.js"><\/script>')
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        window.jQuery.ui || document.write('<script src="lib/jquery-ui.min.js"><\/script>')
+    </script>
+    <script src="lib/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+   -->
+</head>
+
+<body id="diagram">
+    <div id="result">
+        <p>Your Score: <span id="score"></span>%</p>
+        <p>Passing Score: <span id="passing-score"></span>%</p>
+        <hr>
+        <p id="final-message"></p>
+        <button id="btn-try-again">Try again</button>
+    </div>
+    <div id="scoreDiv">
+        <button id="btn-submit">Submit</button>
+        <button id="btn-check">Check</button>
+        <p id="score-display">Score: <span id="current-score">0</span></p>
+    </div>
+    <div id="main">
+        <div id="boxes">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="answers">
+        </div>
+    </div>
+    <script src="src/answer.js"></script>
+    <script src="src/quiz.js"></script>
+    <script src="src/view.js"></script>
+    <script src="src/controller.js"></script>
+    <script src="src/main.js"></script>
+</body>
+
+</html>

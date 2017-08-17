@@ -1,0 +1,72 @@
+body {
+    font-family: arial, helvetica, sans-serif;
+    color: #000;
+    font-size: small;
+}
+
+.titles {
+    padding: 0.5em;
+    text-align: center;
+    color: #000;
+}
+
+.exercise-title {
+    font-size: 140%;
+    color: #000;
+}
+
+#instructions{
+    background-color: #fff;
+    text-align: center;
+    font-size: 99%;
+    color: #000;
+    padding: 0.5em;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #000;
+    margin:1px auto;
+    width:auto;
+}
+
+#quiz {
+    width: 20rem;
+    min-width: 99%;
+    height: 55rem;
+    overflow: hidden;
+}
+@media screen and (min-width: 20rem) { 
+		#quiz {
+    width: 19rem;
+    
+    height: 27rem;
+    overflow: hidden;
+		}
+		#boxes {
+    width:50%;
+  	}
+}
+
+@media screen and (min-width: 35rem) { 
+		#quiz {
+    width: 34rem;
+    
+    height: 52rem;
+    overflow: hidden;
+		}
+		#boxes {
+    width:60%;
+  	}
+}
+
+
+@media screen and (min-width: 60rem) { 
+		#quiz {
+    width: 59rem;
+    
+    height: 60rem;
+    overflow: hidden;
+		}
+		#boxes {
+    width:70%;
+  	}
+}
