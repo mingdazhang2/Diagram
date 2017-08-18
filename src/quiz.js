@@ -7,7 +7,7 @@ class Quiz {
         this.passingScore = 0 // The passingScore in the xml file
         this.score = 0 // The score that shows in the top of the screen
         this.incorrectWeight = 0 // For calculating the score
-				this.labels = [] //[{labelX:"",labelY:""}]
+		this.labels = [] //[{labelX:"",labelY:""}]
         this.inputType = "" // The inputType in the xml file, it can be "drag" or other type like input
        	this.checkTime = 0
         this.setUp() 
@@ -28,7 +28,7 @@ class Quiz {
     /* Get the quiz type 
     * it includes "drag" and "input" types
     */ 
-		getQuizType(){
+	getQuizType(){
 			return  this.xml.getElementsByTagName('match')[0].attributes.getNamedItem("inputtype").value
   		 		
 		}
@@ -125,10 +125,12 @@ class Quiz {
     }
 		/*Reduce the Score when users get wrong answers
 		*/ 
-    reduceAnswerScore(answer) {
-        this.score -= answer.reduceAnswerScore(this.incorrectWeight)
-        //let eventInput = new Event('scoreUpdateEvent')
-        //window.dispatchEvent(eventInput)
+    reduceAnswerScore() {
+        //this.score -= answer.reduceAnswerScore(this.incorrectWeight)
+        this.score = this.score - this.calcIncorrectWeight()*this.calcAnswerScore()
+        this.score = (this.score <= 0) ? 0 : this.score
+        let eventInput = new Event('scoreUpdateEvent')
+        window.dispatchEvent(eventInput)
     }
 		/*Set the incorrectWeight by calling 
 		*the calcIncorrectWeight function

@@ -135,7 +135,9 @@ class Controller {
             Controller.myView.moveAnswerCardToBox(dragged, dropped)
         } else {
             // wrong answer reduce score
-            Controller.myQuiz.reduceAnswerScore(foundAnswer)
+            //Controller.myQuiz.reduceAnswerScore(foundAnswer)
+            Controller.myQuiz.reduceAnswerScore()
+
         }
     }
 }
