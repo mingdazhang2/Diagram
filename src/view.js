@@ -209,17 +209,17 @@ class View {
 
     /*Create AnswerCard function
      */
-    // static calculateResultInput(str) {
-    //     let answerContainer = document.getElementById('answers')
-    //     let answerCard = View.createDivElement(str)
-    //     answerCard.classList.add('answer-card')
-    //     answerContainer.appendChild(answerCard)
+    static createAnswerCardElement(str) {
+        let answerContainer = document.getElementById('answers')
+        let answerCard = View.createDivElement(str)
+        answerCard.classList.add('answer-card')
+        answerContainer.appendChild(answerCard)
 
-    //     $(answerCard).draggable({
-    //         containment: 'body',
-    //         revert: true
-    //     })
-    // }
+        $(answerCard).draggable({
+            containment: 'body',
+            revert: true
+        })
+    }
 
     /*For shuffling question boxes and answer cards
      */
