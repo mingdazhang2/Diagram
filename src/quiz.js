@@ -150,6 +150,33 @@ class Quiz {
     getRoundedQuizScore() {
         return Math.round(this.score)
     }
+        /* Get the reduced score by accounting check times
+        */
+    checkTimeScore(){
+        //let checkTime = Controller.myQuiz.checkTime
+
+        return this.checkTime* this.incorrectWeight*this.calcAnswerScore()
+    }
+        /* Calculating score in the "input Type"
+        */
+    calculateResultInputScore(){
+        let questions = this.quiz.map(questionAnswerSet => questionAnswerSet)
+        for (let i = 0; i < questions.length; i++) {
+            let question = questions[i].question.trim().toLowerCase()
+            let answerObj = document.getElementById(question).childNodes[0]
+            let answer = answerObj.innerText.trim().toLowerCase()
+            if (question != answer) {
+                
+            } else {
+                
+                this.score+=this.calcAnswerScore()
+                
+            }
+        }
+        this.score -= this.checkTimeScore()
+        this.score = (this.score <= 0) ? 0 : this.score
+        
+    }
 		/* Find the answer
 		*/
     findAnswer(innerHTML) {

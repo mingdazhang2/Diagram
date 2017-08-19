@@ -83,22 +83,26 @@ class Controller {
                 answerObj.style.backgroundColor = 'white'
             }
         }
-        let checkTime = ++Controller.myQuiz.checkTime
+        Controller.myQuiz.checkTime++
+        
     }
+
+
+
     /**
      * Build up submit button event
      */
     static submitEventHandler(event) {
         let quiztype = Controller.myQuiz.getQuizType()
-        let score = Controller.myQuiz.getRoundedQuizScore()
+        
         let passingScore = Controller.myQuiz.passingScore
         if (quiztype == 'drag') {
             Controller.myView.removeDraggableAll()
         } else {
-            let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet)
-
-            score = Controller.myView.calculateResultInput(questions)
+            Controller.myQuiz.checkTimeScore() 
+            Controller.myQuiz.calculateResultInputScore()
         }
+        let score = Controller.myQuiz.getRoundedQuizScore()
         Controller.myView.displayResult(score, passingScore)
         Controller.myView.sendScoreToMoodle(score)
     }
