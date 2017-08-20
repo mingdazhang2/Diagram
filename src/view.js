@@ -51,17 +51,16 @@ class View {
         let question = document.getElementById('boxes')
         let imgName = View.quiz.xml.getElementsByTagName('match')[0].attributes.getNamedItem("backgroundimage").value
         let dir = "images/" + imgName
-        if (!document.getElementById('questionImg')) {
-            let questionImg = document.createElement('img')
+      //  if (!document.getElementById('questionImg')) {
+          //  let questionImg = document.createElement('img')
+            let questionImg = document.getElementById('questionImg')
             questionImg.setAttribute("id", "questionImg")
             questionImg.setAttribute("src", dir)
-
             questionImg.setAttribute("width", "100%")
-            questionImg.setAttribute("height", "100%")
-
-            question.appendChild(questionImg)
-        }
-        return question
+            questionImg.setAttribute("height", "100%")          
+          //  question.appendChild(questionImg)
+     //   }
+       // return question
     }
     /*Create the point indicate the target
      */
@@ -71,9 +70,11 @@ class View {
         let targetY = obj.targetY
 
         let questionImg = document.getElementById('questionImg')
+        
+
         let naturalWidth = questionImg.naturalWidth
         let naturalHeight = questionImg.naturalHeight
-
+     //   alert("naturalWidth: " + naturalWidth)
 
         let top = parseInt(targetY) / parseInt(naturalHeight) * 100
         let left = parseInt(targetX) / parseInt(naturalWidth) * 100
@@ -117,13 +118,13 @@ class View {
             let labelX = View.quiz.labels[index].labelX
             let labelY = View.quiz.labels[index].labelY
 
-            let questionImg = document.getElementById('questionImg')
+            let questionImg = document.getElementById('questionImg')           
+
             let naturalWidth = questionImg.naturalWidth
             let naturalHeight = questionImg.naturalHeight
 
             let top = parseInt(labelY) / parseInt(naturalHeight) * 100
             let left = parseInt(labelX) / parseInt(naturalWidth) * 100
-
             box.setAttribute("dataLeft", left * boxContainer.clientWidth)
             box.setAttribute("dataTop", top * boxContainer.clientHeight)
             box.setAttribute("style", "position:absolute")
@@ -170,7 +171,7 @@ class View {
     }
     /* Set up the style and position of the target point
      */
-    static point(x, y, index, color) { //
+    static point(x, y, index, color) { 
         let oDiv = document.createElement('div');
         oDiv.style.position = 'absolute'
         oDiv.style.height = '0.8rem'

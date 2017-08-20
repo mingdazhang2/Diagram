@@ -25,8 +25,18 @@ class Controller {
         // Get the quiz input type
         let quizType = Controller.myQuiz.getQuizType()
         // Create quiz image in the web
-        let questionImg = Controller.myView.createQuestionImg()
+        Controller.myView.createQuestionImg()
         // Get all the questionAnswer set
+
+        var timer = setInterval(function() {
+                if (questionImg.complete) {
+                    callback(questionImg)
+                    clearInterval(timer)
+                }
+            }, 50)
+        let questionImg = document.getElementById('questionImg')
+        questionImg.onload = function() {
+            //alert('loaded')
         let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet)
 
         for (let i = 0; i < questions.length; i++) {
@@ -37,6 +47,10 @@ class Controller {
             // Best Option: draw the index to match each taget point and label
             Controller.myView.createIndex(point, box, i)
         }
+        }
+
+
+     
 
         if (quizType == 'drag') {
             Controller.myQuiz.forAllAnswers(answer => {
