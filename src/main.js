@@ -12,11 +12,11 @@ window.onload = function() {
             let controller = new Controller(quiz, View)
             let flag = window.sessionStorage.getItem("flag");
             // if the session exist, doesn't need to reload the page
-            // if (!flag) {
-            //     setTimeout(function() {
-            //         window.location.reload();
-            //     }, 2000);
-            // }
+            if (!flag) {
+                setTimeout(function() {
+                    window.location.reload();
+                }, 300);
+            }
             window.sessionStorage.setItem("flag", "true");
         }
     }
