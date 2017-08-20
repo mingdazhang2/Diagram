@@ -15,7 +15,7 @@ window.onload = function() {
             if (!flag) {
                 setTimeout(function() {
                     window.location.reload();
-                }, 300);
+                }, 50);
             }
             window.sessionStorage.setItem("flag", "true");
         }

@@ -51,15 +51,15 @@ class View {
         let question = document.getElementById('boxes')
         let imgName = View.quiz.xml.getElementsByTagName('match')[0].attributes.getNamedItem("backgroundimage").value
         let dir = "images/" + imgName
-      //  if (!document.getElementById('questionImg')) {
-          //  let questionImg = document.createElement('img')
-            let questionImg = document.getElementById('questionImg')
+        if (!document.getElementById('questionImg')) {
+            let questionImg = document.createElement('img')
+        //    let questionImg = document.getElementById('questionImg')
             questionImg.setAttribute("id", "questionImg")
             questionImg.setAttribute("src", dir)
             questionImg.setAttribute("width", "100%")
             questionImg.setAttribute("height", "100%")          
-          //  question.appendChild(questionImg)
-     //   }
+            question.appendChild(questionImg)
+        }
        // return question
     }
     /*Create the point indicate the target
