@@ -86,6 +86,7 @@ class View {
         div.appendChild(p)
 
         let color = box.style.backgroundColor
+        //let color = "rgb(" + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + ")"
 
 
         div.setAttribute("class", "circle")

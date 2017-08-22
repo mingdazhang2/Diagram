@@ -4,6 +4,7 @@ class Answer {
   constructor (newAnswerText) {
     this.answerText = newAnswerText
     this.answerScore = 0
+    this.incorrectAnswerTime = 0
   }
 		/*Set the answer score
 		*/ 

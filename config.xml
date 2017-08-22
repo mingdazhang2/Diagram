@@ -1,4 +1,4 @@
-<match title='' numberofmemoryquestions='11' numberofflipquestions='11' backgroundimage="digestiveSystem-diag.jpg" backgroundname='' inputtype='drag' imgX='500' imgY='400'>
+<match title='' numberofmemoryquestions='11' numberofflipquestions='11' backgroundimage="digestiveSystem-diag.jpg" backgroundname='' inputtype='dragd' imgX='500' imgY='400'>
     <passing-score>80</passing-score>
     <pair targetx='210' targety='85'>
         <question labelx='8' labely='130'>mouth</question>

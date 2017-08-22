@@ -16,6 +16,10 @@ class Controller {
         Controller.createQuizElements()
         Controller.setUpEventListeners()
     }
+    static randomNum(n, m) {
+        let c = m - n + 1;
+        return Math.floor(Math.random() * c + n);
+    }
 
     /**
      * Create Quiz elements, create the boxes and answer cards
@@ -38,6 +42,10 @@ class Controller {
         questionImg.onload = function() {
             //alert('loaded')
         let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet)
+        let indexArry = []
+        for(let i =0; i<questions.length; i++){
+            indexArry.push(i)
+        }
 
         for (let i = 0; i < questions.length; i++) {
             // Create question label
@@ -45,8 +53,14 @@ class Controller {
             // Create red point spot
             let point = Controller.myView.createPointElement(questions[i], box)
             // Best Option: draw the index to match each taget point and label
-            Controller.myView.createIndex(point, box, i)
-        }
+             //   Controller.myView.createIndex(point, box, i)
+               
+            let index = Controller.randomNum(0, indexArry.length - 1)
+           
+            Controller.myView.createIndex(point, box, indexArry[index])
+            indexArry.splice(index, 1)
+
+            }
         }
 
 
@@ -63,8 +77,8 @@ class Controller {
             Controller.myView.shuffleContents('answers')
         } else {
             // hide the score div
-            let scoreDiv = document.getElementById('score-display')
-            scoreDiv.style.display = 'none'
+            //let scoreDiv = document.getElementById('score-display')
+            //scoreDiv.style.display = 'none'
         }
     }
 
@@ -87,16 +101,45 @@ class Controller {
         let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet)
 
         for (let i = 0; i < questions.length; i++) {
+            // Get question text and convert to lowerCase
             let question = questions[i].question.trim().toLowerCase()
-            let answerObj = document.getElementById(question).childNodes[0]
-            let answer = answerObj.innerText.trim().toLowerCase()
-            if (question != answer) {
-                answerObj.innerText = ''
-                answerObj.style.backgroundColor = 'pink'
-            } else {
-                answerObj.style.backgroundColor = 'white'
+            let questionObj = document.getElementById(question)
+            // Get p tag object
+            let answerObj = questionObj.childNodes[0]
+                            
+            if (typeof answerObj==null||answerObj.innerText.trim().length==0){
+              
+             //   alert("null")
+            }else{
+                let answer = answerObj.innerText.trim().toLowerCase()
+                let foundAnswer = Controller.myQuiz.findAnswer(answer)
+                // If the answer is wrong
+                if (question != answer) {
+                    let target = Controller.myQuiz.quiz.find(questionAnswerSet => questionAnswerSet.question == question)
+                    target.answers[0].incorrectAnswerTime++
+                    if(target.answers[0].incorrectAnswerTime>=4){
+                        answerObj.innerText = question
+                        answerObj.contentEditable = "false"
+                        answerObj.style.backgroundColor = 'yellow'
+                    }else{
+                        answerObj.innerText = ''
+                        answerObj.style.backgroundColor = 'pink'
+                    }                    
+            
+                } else {  
+                    if(answerObj.contentEditable != 'false'){
+                        answerObj.contentEditable = "false"
+                        answerObj.style.backgroundColor = '#daedf8'
+                        Controller.myQuiz.addQuizScore(foundAnswer)
+                    }
+    
+                }
+                
             }
+            
         }
+        let score = Controller.myQuiz.getRoundedQuizScore()
+        Controller.myView.updateCurrentScore(score)
         Controller.myQuiz.checkTime++
         
     }
@@ -113,8 +156,8 @@ class Controller {
         if (quiztype == 'drag') {
             Controller.myView.removeDraggableAll()
         } else {
-            Controller.myQuiz.checkTimeScore() 
-            Controller.myQuiz.calculateResultInputScore()
+            //Controller.myQuiz.checkTimeScore() 
+            //Controller.myQuiz.calculateResultInputScore()
         }
         let score = Controller.myQuiz.getRoundedQuizScore()
         Controller.myView.displayResult(score, passingScore)
@@ -143,18 +186,23 @@ class Controller {
         let dropped = event.detail.question
         let dragged = event.detail.answer
 
+        
         let target = Controller.myQuiz.quiz.find(questionAnswerSet => questionAnswerSet.question == dropped)
         let foundAnswer = Controller.myQuiz.findAnswer(dragged)
 
         if (target.answers.includes(foundAnswer)) {
+            //alert(foundAnswer.incorrectAnswerTime)
             // correct answer get score
             Controller.myQuiz.addQuizScore(foundAnswer)
             Controller.myView.removeDraggable(dragged)
             Controller.myView.moveAnswerCardToBox(dragged, dropped)
         } else {
+            // let incorrectAnswerTime = ++target.answers[0].incorrectAnswerTime
+            target.answers[0].incorrectAnswerTime++
+            
             // wrong answer reduce score
             //Controller.myQuiz.reduceAnswerScore(foundAnswer)
-            Controller.myQuiz.reduceAnswerScore()
+            //Controller.myQuiz.reduceAnswerScore()
 
         }
     }
