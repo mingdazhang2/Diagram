@@ -34,7 +34,7 @@ class Controller {
 
         var timer = setInterval(function() {
                 if (questionImg.complete) {
-                    callback(questionImg)
+                   // callback(questionImg)
                     clearInterval(timer)
                 }
             }, 50)
