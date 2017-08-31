@@ -144,7 +144,7 @@ class View {
                 p.innerHTML = ""
                 p.contentEditable = "true"
                 let text = box.textContent
-                box.style.backgroundColor = "black"
+                box.style.backgroundColor = "rgb(" + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + ")"
             }
 
             $(box).droppable({

@@ -7,7 +7,7 @@ class Quiz {
         this.passingScore = 0 // The passingScore in the xml file
         this.score = 0 // The score that shows in the top of the screen
         this.incorrectWeight = 0 // For calculating the score
-		this.labels = [] //[{labelX:"",labelY:""}]
+				this.labels = [] //[{labelX:"",labelY:""}]
         this.inputType = "" // The inputType in the xml file, it can be "drag" or other type like input
        	this.checkTime = 0
         this.setUp() 
