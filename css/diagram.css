@@ -94,10 +94,10 @@ img {
 	 display: none;
 }
 .question-box > p {
-	  display: block;
-   // flex-basis: 100%;
-   width:100%;
-   height:100%;
+	display: block;
+    position: relative;
+    width:100%;
+    height:100%;
    
 }
 .inputBox{
