@@ -160,7 +160,6 @@ class Quiz {
      */
   addQuizScore (answer) {
     let answerRate = answer.incorrectAnswerTime >= 4 ? 0 : (1 - answer.incorrectAnswerTime * 0.25)
-        // alert("answerRate"+answerRate)
     this.score += answer.answerScore * (answerRate)
     let eventInput = new Event('scoreUpdateEvent')
     window.dispatchEvent(eventInput)

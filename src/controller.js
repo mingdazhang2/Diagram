@@ -44,7 +44,7 @@ class Controller {
     }, 50)
     let questionImg = document.getElementById('questionImg')
     questionImg.onload = function () {
-            // alert('loaded')
+          
       let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet)
       let indexArry = []
       for (let i = 0; i < questions.length; i++) {
@@ -108,8 +108,6 @@ class Controller {
       let answerObj = questionObj.childNodes[0]
 
       if (typeof answerObj == null || answerObj.innerText.trim().length == 0) {
-
-             //   alert("null")
       } else {
         let answer = answerObj.innerText.trim().toLowerCase()
         let foundAnswer = Controller.myQuiz.findAnswer(answer)
@@ -153,9 +151,27 @@ class Controller {
             // Controller.myQuiz.calculateResultInputScore()
     }
     let score = Controller.myQuiz.getRoundedQuizScore()
+
+    
     Controller.myView.displayResult(score, passingScore)
+    Controller.sleep(3000).then(() => {
+    console.log('Score successfully send!')
+    // The action after sleeping 
     Controller.myView.sendScoreToMoodle(score)
+    })    
+    
+
+    
   }
+  /**
+   * Sleeping function
+   * @param  {Number} time The time that system sleep
+   * @return {Promise}      Returns a Promise object
+   */
+  static sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
     /**
      *  Try again event when uses have been marked,the button appears on the prompt window
      */
@@ -186,18 +202,14 @@ class Controller {
     let foundAnswer = Controller.myQuiz.findAnswer(dragged)
 
     if (target.answers.includes(foundAnswer)) {
-            // alert(foundAnswer.incorrectAnswerTime)
-            // correct answer get score
+       
       Controller.myQuiz.addQuizScore(foundAnswer)
       Controller.myView.removeDraggable(dragged)
       Controller.myView.moveAnswerCardToBox(dragged, dropped)
     } else {
-            // let incorrectAnswerTime = ++target.answers[0].incorrectAnswerTime
+
       target.answers[0].incorrectAnswerTime++
 
-            // wrong answer reduce score
-            // Controller.myQuiz.reduceAnswerScore(foundAnswer)
-            // Controller.myQuiz.reduceAnswerScore()
     }
   }
 }

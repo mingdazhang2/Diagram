@@ -94,7 +94,6 @@ class View {
 
     let naturalWidth = questionImg.naturalWidth
     let naturalHeight = questionImg.naturalHeight
-        //   alert("naturalWidth: " + naturalWidth)
 
     let top = parseInt(targetY) / parseInt(naturalHeight) * 100
     let left = parseInt(targetX) / parseInt(naturalWidth) * 100
@@ -326,10 +325,12 @@ class View {
      * Send the score to Moodle
      */
   static sendScoreToMoodle (score) {
+    
     let form = window.parent.document.getElementById('store')
     form.mark.value = score
-        // form.submit() //commented out because it refreshes page
-  }
+    form.submit() 
+     //commented out because it refreshes page
+    }
     /**
      * @param {Number} score The score of user get
      * @param {Number} passingScore The passing score
