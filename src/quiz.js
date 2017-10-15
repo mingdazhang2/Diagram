@@ -42,18 +42,18 @@ class Quiz {
      */
   createQuiz () {
             // Get question list
-          let questions = this.xml.getElementsByTagName('question')
+    let questions = this.xml.getElementsByTagName('question')
           // Loop the question list to get "labely", "labelX", "tagetX", "tagetY" to set the location of labels and tagetPoints
-          Array.from(questions).forEach(question => {
-            let labelY = question.attributes.getNamedItem('labely').value
-            let labelX = question.attributes.getNamedItem('labelx').value
+    Array.from(questions).forEach(question => {
+      let labelY = question.attributes.getNamedItem('labely').value
+      let labelX = question.attributes.getNamedItem('labelx').value
       let labelEntry = {
-            labelY: labelY,
-            labelX: labelX
-            }
+        labelY: labelY,
+        labelX: labelX
+      }
 
       this.labels.push(labelEntry)
-            })
+    })
 
     let boxes = this.xml.getElementsByTagName('pair')
     Array.from(boxes).forEach(aBox => {
@@ -72,8 +72,8 @@ class Quiz {
       let questionAnswerSet = {
         question: label,
         answers: answers,
-                targetX: targetX,
-                targetY: targetY
+        targetX: targetX,
+        targetY: targetY
       }
       this.quiz.push(questionAnswerSet)
     })
@@ -84,7 +84,7 @@ class Quiz {
   setPassingScore () {
     let passingScore = this.xml.getElementsByTagName('passing-score')[0]
     if (passingScore) {
-            this.passingScore = Number(passingScore.innerHTML)
+      this.passingScore = Number(passingScore.innerHTML)
     }
   }
     /**

@@ -1,9 +1,8 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 /** @class View */
 class View {
-  
     /**
-     * The function of setting up a quiz 
+     * The function of setting up a quiz
      * @param {Object} quiz Set up the quiz
      */
   static setUp (quiz) {
@@ -325,12 +324,11 @@ class View {
      * Send the score to Moodle
      */
   static sendScoreToMoodle (score) {
-    
     let form = window.parent.document.getElementById('store')
     form.mark.value = score
-    form.submit() 
-     //commented out because it refreshes page
-    }
+    form.submit()
+     // commented out because it refreshes page
+  }
     /**
      * @param {Number} score The score of user get
      * @param {Number} passingScore The passing score

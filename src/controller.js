@@ -44,7 +44,6 @@ class Controller {
     }, 50)
     let questionImg = document.getElementById('questionImg')
     questionImg.onload = function () {
-          
       let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet)
       let indexArry = []
       for (let i = 0; i < questions.length; i++) {
@@ -75,11 +74,11 @@ class Controller {
 
       Controller.myView.shuffleContents('boxes')
       Controller.myView.shuffleContents('answers')
-    } else if (quizType == 'input'){
+    } else if (quizType == 'input') {
             // hide the score div
             // let scoreDiv = document.getElementById('score-display')
             // scoreDiv.style.display = 'none'
-    } else{
+    } else {
       alert(quizType)
     }
   }
@@ -154,16 +153,12 @@ class Controller {
     }
     let score = Controller.myQuiz.getRoundedQuizScore()
 
-    
     Controller.myView.displayResult(score, passingScore)
     Controller.sleep(3000).then(() => {
-    console.log('Score successfully send!')
-    // The action after sleeping 
-    Controller.myView.sendScoreToMoodle(score)
-    })    
-    
-
-    
+      console.log('Score successfully send!')
+    // The action after sleeping
+      Controller.myView.sendScoreToMoodle(score)
+    })
   }
   /**
    * Sleeping function
@@ -171,8 +166,8 @@ class Controller {
    * @return {Promise}      Returns a Promise object
    */
   static sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
+    return new Promise((resolve) => setTimeout(resolve, time))
+  }
 
     /**
      *  Try again event when uses have been marked,the button appears on the prompt window
@@ -204,14 +199,11 @@ class Controller {
     let foundAnswer = Controller.myQuiz.findAnswer(dragged)
 
     if (target.answers.includes(foundAnswer)) {
-       
       Controller.myQuiz.addQuizScore(foundAnswer)
       Controller.myView.removeDraggable(dragged)
       Controller.myView.moveAnswerCardToBox(dragged, dropped)
     } else {
-
       target.answers[0].incorrectAnswerTime++
-
     }
   }
 }

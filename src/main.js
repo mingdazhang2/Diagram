@@ -12,9 +12,9 @@ window.onload = function () {
       let controller = new Controller(quiz, View)
       parent.resizeIframe()
             // wait for images to be loaded and do it again
-            setTimeout(function() {
-                parent.resizeIframe()
-            }, 1000)
+      setTimeout(function () {
+        parent.resizeIframe()
+      }, 1000)
 
       let flag = window.sessionStorage.getItem('flag')
             // if the session exist, doesn't need to reload the page
