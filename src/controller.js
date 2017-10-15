@@ -75,10 +75,12 @@ class Controller {
 
       Controller.myView.shuffleContents('boxes')
       Controller.myView.shuffleContents('answers')
-    } else {
+    } else if (quizType == 'input'){
             // hide the score div
             // let scoreDiv = document.getElementById('score-display')
             // scoreDiv.style.display = 'none'
+    } else{
+      alert(quizType)
     }
   }
 

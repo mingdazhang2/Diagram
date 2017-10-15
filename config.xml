@@ -1,5 +1,16 @@
+<!-- 
+backgroundimage= 'The whole name of quiz picture file(Don't need to think about the path)' 
+inputtype='drag' (or inputtype='input') 
+<passing-score>The score that check if user can past</passing-score>
+
+<pair targetx='The x coordinate of target point' targety='The y coordinate of target point'> 
+        <question labelx='The x coordinate of label point' labely='The x coordinate of label point'>mouth</question>
+        <answer>The content of answer</answer>
+</pair>
+-->
 <match title='' numberofmemoryquestions='11' numberofflipquestions='11' backgroundimage="digestiveSystem-diag.jpg" backgroundname='' inputtype='drag' imgX='500' imgY='400'>
     <passing-score>80</passing-score>
+    <!--Paste start -->
     <pair targetx='210' targety='85'>
         <question labelx='8' labely='130'>mouth</question>
         <answer>mouth</answer>
@@ -44,4 +55,5 @@
         <question labelx='8' labely='360'>colon</question>
         <answer>colon</answer>
     </pair>
+    <!--Paste end -->
 </match>
