@@ -8,7 +8,7 @@ inputtype='drag' (or inputtype='input')
         <answer>The content of answer</answer>
 </pair>
 -->
-<match title='' numberofmemoryquestions='11' numberofflipquestions='11' backgroundimage="digestiveSystem-diag.jpg" backgroundname='' inputtype='drag' imgX='500' imgY='400'>
+<match title='' numberofmemoryquestions='11' numberofflipquestions='11' backgroundimage="digestiveSystem-diag.jpg" backgroundname='' inputtype='input' imgX='500' imgY='400'>
     <passing-score>80</passing-score>
     <!--Paste start -->
     <pair targetx='210' targety='85'>

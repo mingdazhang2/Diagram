@@ -27,7 +27,7 @@ class Quiz {
         // Set the answerscore base on the number of the answer cards
     this.setAnswerScore()
         // Set the weight of answer for calculating the final score
-    this.setIncorrectWeight()
+   // this.setIncorrectWeight()
   }
     /**
      * Get the quiz type
@@ -101,9 +101,9 @@ class Quiz {
      * Get the length of the quiz
      * @return {Number} Returns the numbers of questions
      */
-  countQuestions () {
-    return this.quiz.length
-  }
+  // countQuestions () {
+  //   return this.quiz.length
+  // }
     /**
      * Count the number of answers
      * @return {Number} Returns the number of answers
@@ -123,11 +123,11 @@ class Quiz {
      * Calculating the incorrectWeigth of answer
      * @return {Number} Returns the incorrect weight for each answer
      */
-  calcIncorrectWeight () {
-    let answerScore = this.calcAnswerScore()
-    let incorrectWeight = answerScore * (1 / (this.countQuestions() - 1))
-    return incorrectWeight
-  }
+  // calcIncorrectWeight () {
+  //   let answerScore = this.calcAnswerScore()
+  //   let incorrectWeight = answerScore * (1 / (this.countQuestions() - 1))
+  //   return incorrectWeight
+  // }
     /**
      * Set the score for each answer
      */
@@ -151,9 +151,9 @@ class Quiz {
      * Set the incorrectWeight by calling the calcIncorrectWeight function
      *
      */
-  setIncorrectWeight () {
-    this.incorrectWeight = this.calcIncorrectWeight()
-  }
+  // setIncorrectWeight () {
+  //   this.incorrectWeight = this.calcIncorrectWeight()
+  // }
     /**
      * Adding up the updating score event
      * @param {Number} answer The answer objec

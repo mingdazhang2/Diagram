@@ -79,7 +79,7 @@ class Controller {
             // let scoreDiv = document.getElementById('score-display')
             // scoreDiv.style.display = 'none'
     } else {
-      alert(quizType)
+      alert('Please input "drag" or "input" type in xml file'+ quizType)
     }
   }
 
