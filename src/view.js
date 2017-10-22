@@ -143,12 +143,9 @@ class View {
       let index = View.randomNum(0, View.quiz.labels.length - 1)
       let labelX = View.quiz.labels[index].labelX
       let labelY = View.quiz.labels[index].labelY
-
       let questionImg = document.getElementById('questionImg')
-
       let naturalWidth = questionImg.naturalWidth
       let naturalHeight = questionImg.naturalHeight
-
       let top = parseInt(labelY) / parseInt(naturalHeight) * 100
       let left = parseInt(labelX) / parseInt(naturalWidth) * 100
       box.setAttribute('dataLeft', left * boxContainer.clientWidth)
